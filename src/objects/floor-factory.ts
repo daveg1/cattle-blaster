@@ -8,7 +8,7 @@ export class FloorFactory {
   }
 
   static async create(scene: THREE.Scene) {
-    const texture = new THREE.TextureLoader().load("/textures/dirt.jpg");
+    const texture = new THREE.TextureLoader().load("textures/dirt.jpg");
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set(3, 3);

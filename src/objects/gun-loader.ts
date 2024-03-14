@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OBJLoader } from "three/addons";
 
-const loader = new OBJLoader().setPath("/models/");
+const loader = new OBJLoader().setPath("models/");
 
 export class GunFactory {
   static #object: THREE.Object3D | null = null;
@@ -15,7 +15,7 @@ export class GunFactory {
       return this.#object;
     }
 
-    const texture = new THREE.TextureLoader().load("/textures/shotgun.png");
+    const texture = new THREE.TextureLoader().load("textures/shotgun.png");
     texture.colorSpace = THREE.SRGBColorSpace;
 
     // Load gun model and texture

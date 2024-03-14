@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons";
 import { playSFX } from "../utils/play-sfx";
 
-const loader = new GLTFLoader().setPath("/models/");
+const loader = new GLTFLoader().setPath("models/");
 
 export class CowFactory {
   static readonly #objects: THREE.Object3D[] = [];

@@ -5,7 +5,7 @@ interface SFXOptions {
 }
 
 export function playSFX(name: string, options?: SFXOptions) {
-  const audio = new Audio(`/sfx/${name}.mp3`);
+  const audio = new Audio(`sfx/${name}.mp3`);
   audio.loop = options?.loop ?? false;
   audio.volume = options?.volume ?? 1;
 
