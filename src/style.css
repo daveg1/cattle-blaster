@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'Cowboys';
+  src: url('/fonts/cowboy.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'Texas';
+  src: url('/fonts/texas.otf') format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+  cursor: url('/crosshair.png') 32 32, pointer;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --c-red: #982e2d;
+  --c-red-l: #be4442;
+  --c-beige: #fee8bd;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 1;
+}
+
+body {
+  background:
+  linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url('/barn.jpg') center -90px / cover;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-variant-numeric: lining-nums;
+  overflow: hidden;
+}
+
+canvas {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.game-button {
+  --accent: var(--c-red);
+  background-color: var(--accent);
+  border: 0.25rem solid var(--c-beige);
+  border-radius: 1rem 0;
+  outline: 0.25rem solid var(--accent);
+  box-shadow: 0 4px 12px 2px #000;
+
+  color: var(--c-beige);
+  font: inherit;
+  font-size: 2rem;
+  padding: 0.75rem 2rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  user-select: none;
+}
+
+.game-button:hover {
+  --accent: var(--c-red-l);
+}
+
+.score {
+  background-color: var(--c-red);
+  border: 0.25rem solid var(--c-beige);
+  border-radius: 1rem 0;
+  outline: 0.25rem solid var(--c-red);
+
+  display: grid;
+  place-items: center;
+  padding-block: 0.5rem;
+  width: 10rem;
+
+  left: 70%;
+  position: absolute;
+  top: 2rem;
+  transform: translateX(-50%);
+
+  font-size: 2rem;;
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-message {
+  font-family: 'Texas';
+  font-size: 2rem;
+  text-align: center;
+  text-shadow:
+    0 2px #aaa,
+    2px 4px var(--c-red),
+    4px 6px var(--c-red);
+
+  top: 25%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-message:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block: 1rem;
+}

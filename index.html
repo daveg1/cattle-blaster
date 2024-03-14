@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cattle Shot</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div class="ui">
+      <button
+        id="start-button"
+        class="game-button"
+        [hidden]="hideStartButton"
+        (click)="handleStartGame()"
+      >
+        Start
+      </button>
+
+      <div id="game-score" class="score">Score: -</div>
+
+      <div id="game-lost" class="game-message texas" hidden>
+        <h2>HOT DAMN</h2>
+        <p>You're a poor excuse, boy</p>
+      </div>
+
+      <div id="game-won" class="game-message texas" hidden>
+        <h2>YEEE HAW</h2>
+        <p>You done shot them cattle</p>
+      </div>
+    </div>
+  </body>
+</html>
