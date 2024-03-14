@@ -22,6 +22,7 @@ export class GameScene {
 
   readonly #KILL_DEPTH = -1;
   readonly #SCORE_TO_WIN = 50;
+  readonly #MIN_FALL_SPEED = 1;
   #score = 0;
   #hasGameStarted = false;
   #hasGameEnded = false;
@@ -169,6 +170,7 @@ export class GameScene {
     this.#hasGameStarted = true;
     this.#hasGameEnded = false;
     this.#score = 0;
+    this.#fallSpeed = this.#MIN_FALL_SPEED;
 
     (document.getElementById("game-won") as HTMLElement).hidden = true;
     (document.getElementById("game-lost") as HTMLElement).hidden = true;
@@ -183,7 +185,7 @@ export class GameScene {
       CowFactory.create(this.scene);
     }
 
-    playSFX("jeehaw", { volume: 0.6 });
+    playSFX("jeehaw", { volume: 1 });
     this.bgMusic = playSFX("music", { loop: true, volume: 1.0 });
   }
 
@@ -209,7 +211,7 @@ export class GameScene {
     playSFX("wet-fart", { volume: 0.5 });
     setTimeout(() => {
       playSFX("prayin", { volume: 0.2 });
-    }, 500);
+    }, 1000);
 
     const message = document.getElementById("game-lost") as HTMLElement;
     message.hidden = false;
