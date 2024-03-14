@@ -21,10 +21,11 @@ export class GameScene {
   private bgMusic?: HTMLAudioElement;
 
   readonly #KILL_DEPTH = -1;
-  readonly #SCORE_TO_WIN = 15;
+  readonly #SCORE_TO_WIN = 50;
   #score = 0;
   #hasGameStarted = false;
   #hasGameEnded = false;
+  #fallSpeed = 1;
 
   get hasGameEnded() {
     return this.#hasGameEnded;
@@ -109,6 +110,10 @@ export class GameScene {
     if (this.#score === this.#SCORE_TO_WIN) {
       this.winGame();
     }
+
+    if (this.#score > 0 && this.#score % 15 === 0) {
+      this.#fallSpeed += 0.5;
+    }
   }
 
   update(dt: number) {
@@ -126,7 +131,7 @@ export class GameScene {
       // Make cows descend
       for (let i = CowFactory.objects.length; i--; ) {
         const cow = CowFactory.objects[i];
-        cow.position.y -= 1 * dt;
+        cow.position.y -= this.#fallSpeed * dt;
 
         if (cow.position.y <= this.#KILL_DEPTH) {
           this.loseGame();
